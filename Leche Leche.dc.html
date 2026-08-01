@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%231A1A1A'/%3E%3Ccircle cx='12' cy='11' r='4' fill='%23fff'/%3E%3Ccircle cx='21' cy='20' r='3' fill='%23fff'/%3E%3Ccircle cx='17' cy='17' r='3' fill='%23F06CA0'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<meta name="description" content="LECHE LECHE — premium milky soft-serve from the Philippines. One perfect swirl, franchise-ready kiosks, and a cow that makes people smile.">
+<meta property="og:title" content="LECHE LECHE — Soft serve, made playful.">
+<meta property="og:description" content="One really good swirl. Franchise with us across the Philippines.">
+<meta property="og:type" content="website">
+<script src="./image-slot.js"></script>
+<style>
+  :root{
+    --ll-white:#FFFFFF;--ll-black:#1A1A1A;--ll-pink:#F06CA0;--ll-soft-pink:#F9C3D8;
+    --ll-cream:#FFF6EE;--ll-radius-card:20px;
+    --ll-font-display:'Baloo 2',cursive;--ll-font-body:Nunito,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--ll-white);color:var(--ll-black);font-family:var(--ll-font-body);-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:var(--ll-pink);text-decoration:none;transition:color .2s ease,opacity .2s ease;}
+  a:hover{color:#d8548a;}
+  img-slot,image-slot{display:block;}
+  input,textarea{font-family:var(--ll-font-body);}
+  ::selection{background:var(--ll-soft-pink);color:var(--ll-black);}
+  @keyframes ll-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(9px);}}
+  @keyframes ll-spin{to{transform:rotate(360deg);}}
+  .ll-nav-links{display:flex;gap:26px;flex-wrap:wrap;}
+  .ll-nav-cta{display:flex;align-items:center;gap:30px;flex-wrap:wrap;justify-content:flex-end;}
+  .ll-nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;width:44px;height:44px;align-items:center;justify-content:center;flex-direction:column;gap:5px;border-radius:12px;}
+  .ll-nav-toggle span{display:block;width:22px;height:2px;background:var(--ll-black);border-radius:2px;transition:transform .25s ease,opacity .25s ease;}
+  .ll-nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .ll-nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .ll-nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .ll-gallery{column-count:3;column-gap:18px;}
+  @media(max-width:900px){.ll-gallery{column-count:2;}}
+  @media(max-width:560px){.ll-gallery{column-count:1;}}
+  @media(max-width:768px){
+    .ll-nav-toggle{display:flex;}
+    .ll-nav-links{display:none;flex-direction:column;gap:0;width:100%;padding:12px 0 4px;}
+    .ll-nav-links.is-open{display:flex;}
+    .ll-nav-links a{padding:12px 0;font-size:16px;border-bottom:1px solid rgba(26,26,26,.06);}
+    .ll-nav-cta{flex-direction:column;align-items:stretch;gap:0;}
+    .ll-nav-inner{flex-wrap:wrap;}
+    .ll-nav-menu{width:100%;order:3;display:none;padding-bottom:8px;}
+    .ll-nav-menu.is-open{display:block;}
+    .ll-nav-menu .ll-nav-cta-franchise{display:block;text-align:center;margin-top:8px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    [data-reveal]{opacity:1!important;transform:none!important;transition:none!important;}
+    #heroParallax{transform:none!important;}
+    .ll-scroll-hint{animation:none!important;}
+  }
+</style>
+</helmet>
+
+<div style="position:relative;width:100%;overflow-x:hidden;">
+
+<!-- ===================== NAV ===================== -->
+<nav id="lnav" style="position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s ease,box-shadow .35s ease,border-color .35s ease,backdrop-filter .35s ease;border-bottom:1px solid transparent;">
+  <div class="ll-nav-inner" style="max-width:1240px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;">
+    <a href="#top" style="display:flex;align-items:center;gap:10px;color:#1A1A1A;">
+      <span style="width:34px;height:34px;border-radius:50%;background:#1A1A1A;position:relative;display:inline-block;overflow:hidden;flex:0 0 auto;">
+        <span style="position:absolute;width:14px;height:12px;background:#fff;border-radius:50%;top:6px;left:5px;"></span>
+        <span style="position:absolute;width:9px;height:8px;background:#fff;border-radius:50%;bottom:5px;right:6px;"></span>
+        <span style="position:absolute;width:8px;height:8px;background:#F06CA0;border-radius:50%;bottom:9px;left:13px;"></span>
+      </span>
+      <span style="font-family:'Baloo 2',cursive;font-weight:800;font-size:22px;line-height:1;letter-spacing:-.01em;color:#F06CA0;">Leche&nbsp;Leche</span>
+    </a>
+    <button id="llNavToggle" class="ll-nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="llNavMenu"><span></span><span></span><span></span></button>
+    <div id="llNavMenu" class="ll-nav-menu">
+      <div class="ll-nav-cta">
+        <div id="llNavLinks" class="ll-nav-links">
+          <a href="#swirl" style="color:#1A1A1A;font-weight:700;font-size:15px;">The Swirl</a>
+          <a href="#experience" style="color:#1A1A1A;font-weight:700;font-size:15px;">Experience</a>
+          <a href="#why" style="color:#1A1A1A;font-weight:700;font-size:15px;">Why It Works</a>
+          <a href="#franchise" style="color:#1A1A1A;font-weight:700;font-size:15px;">Franchise</a>
+          <a href="#find" style="color:#1A1A1A;font-weight:700;font-size:15px;">Find Us</a>
+        </div>
+        <a href="#franchise" class="ll-nav-cta-franchise" style="background:#F06CA0;color:#fff;font-family:'Baloo 2',cursive;font-weight:700;font-size:15px;padding:11px 22px;border-radius:999px;box-shadow:0 8px 20px rgba(240,108,160,.32);transition:transform .2s ease,box-shadow .2s ease;" style-hover="transform:translateY(-2px);box-shadow:0 12px 26px rgba(240,108,160,.42);">Franchise With Us</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="top" style="position:relative;min-height:clamp(620px,94vh,960px);overflow:hidden;background:#FFF6EE;display:flex;flex-direction:column;justify-content:flex-end;">
+  <div id="heroParallax" style="position:absolute;inset:-6% 0 -6% 0;will-change:transform;">
+    <video id="heroVidA" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183829_b15ef06d-cde9-4028-a1fc-d5d1574488ee.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183654_d683fedb-3d53-48f3-888e-8c1a1ef3084e.png" muted playsinline autoplay preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 1.2s ease;"></video>
+    <video id="heroVidB" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183829_b15ef06d-cde9-4028-a1fc-d5d1574488ee.mp4" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;"></video>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,246,238,.30) 0%,rgba(26,26,26,.04) 38%,rgba(26,26,26,.30) 74%,rgba(26,26,26,.58) 100%);pointer-events:none;"></div>
+  <div style="position:absolute;top:16%;left:50%;transform:translateX(-50%);font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(72px,19vw,320px);line-height:.82;color:rgba(255,255,255,.15);white-space:nowrap;pointer-events:none;letter-spacing:-.02em;text-align:center;">Leche&nbsp;Leche</div>
+
+  <div style="position:relative;z-index:3;max-width:1240px;width:100%;margin:0 auto;padding:0 24px clamp(56px,9vh,120px);pointer-events:none;">
+    <div data-reveal style="pointer-events:auto;max-width:760px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.9);padding:8px 15px;border-radius:999px;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#F06CA0;box-shadow:0 6px 18px rgba(26,26,26,.12);">
+        <span style="width:8px;height:8px;border-radius:50%;background:#F06CA0;display:inline-block;"></span>The one really good swirl
+      </div>
+      <h1 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(44px,7.4vw,104px);line-height:.95;letter-spacing:-.02em;color:#fff;margin:18px 0 0;text-shadow:0 6px 40px rgba(26,26,26,.35);">Soft serve,<br>made playful.</h1>
+      <p style="font-size:clamp(17px,1.6vw,22px);line-height:1.5;color:rgba(255,255,255,.94);max-width:520px;margin:22px 0 0;text-shadow:0 2px 14px rgba(26,26,26,.35);">One perfect milky swirl, pulled fresh from our little cow-carton kiosk. No menu to decode — just the good stuff.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;">
+        <a href="#find" style="background:#F06CA0;color:#fff;font-family:'Baloo 2',cursive;font-weight:700;font-size:18px;padding:17px 32px;border-radius:999px;box-shadow:0 12px 30px rgba(240,108,160,.45);transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s ease;" style-hover="transform:translateY(-3px) scale(1.03);box-shadow:0 18px 38px rgba(240,108,160,.55);">Find a Store</a>
+        <a href="#franchise" style="background:rgba(255,255,255,.95);color:#1A1A1A;font-family:'Baloo 2',cursive;font-weight:700;font-size:18px;padding:17px 32px;border-radius:999px;box-shadow:0 10px 26px rgba(26,26,26,.2);transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s ease;" style-hover="transform:translateY(-3px) scale(1.03);box-shadow:0 16px 34px rgba(26,26,26,.28);">Franchise With Us</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;margin-top:30px;color:#fff;">
+        <div style="display:flex;gap:3px;color:#F9C3D8;font-size:20px;letter-spacing:2px;text-shadow:0 2px 10px rgba(26,26,26,.3);">★★★★★</div>
+        <span style="font-weight:800;font-size:17px;text-shadow:0 2px 10px rgba(26,26,26,.4);">4.9</span>
+        <span style="opacity:.9;font-weight:600;text-shadow:0 2px 10px rgba(26,26,26,.4);">· 12,400+ happy scoops</span>
+      </div>
+    </div>
+  </div>
+  <div class="ll-scroll-hint" style="position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.85);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;animation:ll-bob 2.4s ease-in-out infinite;pointer-events:none;">Scroll<span style="width:1px;height:26px;background:rgba(255,255,255,.6);display:block;"></span></div>
+</section>
+
+<!-- ===================== BRAND NOTE + STATS ===================== -->
+<section style="max-width:1000px;margin:0 auto;padding:clamp(90px,13vw,150px) 24px clamp(50px,7vw,80px);text-align:center;">
+  <div data-reveal style="display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#F06CA0;">
+    <span style="width:8px;height:8px;border-radius:50%;background:#F06CA0;display:inline-block;"></span>Our little idea
+  </div>
+  <p data-reveal data-reveal-delay="80" style="font-family:'Baloo 2',cursive;font-weight:600;font-size:clamp(26px,4vw,46px);line-height:1.25;letter-spacing:-.01em;margin:22px 0 0;text-wrap:balance;">Leche Leche started with one simple idea — <span style="color:#F06CA0;">one really good swirl</span>, served from a cow that makes people smile.</p>
+  <p data-reveal data-reveal-delay="140" style="font-size:clamp(16px,1.5vw,19px);line-height:1.7;color:rgba(26,26,26,.62);max-width:620px;margin:24px auto 0;">No twenty-flavor wall. No confusing menu. Just creamy, milky soft serve done properly — and a kiosk so charming people cross the mall to find it.</p>
+</section>
+
+<section style="max-width:1240px;margin:0 auto;padding:0 24px clamp(80px,11vw,130px);">
+  <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:rgba(26,26,26,.08);border-radius:24px;overflow:hidden;border:1px solid rgba(26,26,26,.08);">
+    <div style="background:#FFF6EE;padding:38px 28px;text-align:center;"><div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(32px,4vw,48px);color:#F06CA0;line-height:1;">1</div><div style="font-weight:700;color:rgba(26,26,26,.6);margin-top:10px;font-size:15px;">Soft-serve only</div></div>
+    <div style="background:#fff;padding:38px 28px;text-align:center;"><div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(32px,4vw,48px);color:#1A1A1A;line-height:1;">24</div><div style="font-weight:700;color:rgba(26,26,26,.6);margin-top:10px;font-size:15px;">Stores &amp; growing</div></div>
+    <div style="background:#fff;padding:38px 28px;text-align:center;"><div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(32px,4vw,48px);color:#1A1A1A;line-height:1;">4.9★</div><div style="font-weight:700;color:rgba(26,26,26,.6);margin-top:10px;font-size:15px;">Crowd favorite</div></div>
+    <div style="background:#FFF6EE;padding:38px 28px;text-align:center;"><div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(32px,4vw,48px);color:#F06CA0;line-height:1;">100%</div><div style="font-weight:700;color:rgba(26,26,26,.6);margin-top:10px;font-size:15px;">Franchise-ready</div></div>
+  </div>
+</section>
+
+<!-- ===================== THE SWIRL ===================== -->
+<section id="swirl" style="background:#FFF6EE;padding:clamp(80px,11vw,140px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,6vw,90px);align-items:center;">
+    <div data-reveal style="position:relative;">
+      <div style="position:relative;width:100%;aspect-ratio:4/5;border-radius:24px;overflow:hidden;box-shadow:0 30px 70px rgba(26,26,26,.16);">
+        <image-slot id="ll-swirl" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183654_9ed9154a-b9a8-4fac-be9d-f62456055c64.png" shape="rect" fit="cover" placeholder="THE SWIRL · 4:5 · macro of the milky soft-serve swirl in a cow-print + pink wrapper, held in a hand, blurred lively crowd"></image-slot>
+      </div>
+      <div style="position:absolute;top:-22px;right:-6px;width:104px;height:104px;border-radius:50%;background:#F06CA0;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 14px 30px rgba(240,108,160,.4);transform:rotate(-8deg);">
+        <span style="font-family:'Baloo 2',cursive;font-weight:800;font-size:26px;line-height:.9;">The</span>
+        <span style="font-family:'Baloo 2',cursive;font-weight:800;font-size:26px;line-height:.9;">One</span>
+      </div>
+    </div>
+    <div data-reveal data-reveal-delay="120">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#F06CA0;">
+        <span style="width:8px;height:8px;border-radius:50%;background:#F06CA0;display:inline-block;"></span>The Swirl
+      </div>
+      <h2 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(38px,5.4vw,72px);line-height:.98;letter-spacing:-.02em;margin:16px 0 0;">One swirl.<br>Done right.</h2>
+      <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.7;color:rgba(26,26,26,.66);margin:22px 0 0;max-width:460px;">Pulled fresh to order, our signature milk soft serve is cool, clean and impossibly creamy — real dairy, gently sweet, with that tall, glossy peak that photographs itself.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;margin-top:30px;">
+        <div style="display:flex;align-items:center;gap:14px;"><span style="width:38px;height:38px;flex:0 0 auto;border-radius:50%;background:#F9C3D8;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-weight:800;color:#F06CA0;">1</span><span style="font-weight:700;font-size:16px;">Real milk base — creamy, never icy</span></div>
+        <div style="display:flex;align-items:center;gap:14px;"><span style="width:38px;height:38px;flex:0 0 auto;border-radius:50%;background:#F9C3D8;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-weight:800;color:#F06CA0;">2</span><span style="font-weight:700;font-size:16px;">Pulled fresh, one cone at a time</span></div>
+        <div style="display:flex;align-items:center;gap:14px;"><span style="width:38px;height:38px;flex:0 0 auto;border-radius:50%;background:#F9C3D8;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-weight:800;color:#F06CA0;">3</span><span style="font-weight:700;font-size:16px;">Wrapped in our signature cow-print cone</span></div>
+      </div>
+      <a href="#find" style="display:inline-block;margin-top:34px;background:#1A1A1A;color:#fff;font-family:'Baloo 2',cursive;font-weight:700;font-size:17px;padding:15px 30px;border-radius:999px;box-shadow:0 10px 24px rgba(26,26,26,.2);transition:transform .2s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:translateY(-3px) scale(1.03);">Come get one</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THE EXPERIENCE ===================== -->
+<section id="experience" style="max-width:1240px;margin:0 auto;padding:clamp(80px,11vw,140px) 24px;">
+  <div data-reveal style="max-width:720px;">
+    <div style="display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#F06CA0;"><span style="width:8px;height:8px;border-radius:50%;background:#F06CA0;display:inline-block;"></span>The Experience</div>
+    <h2 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(36px,5vw,66px);line-height:1;letter-spacing:-.02em;margin:16px 0 0;">A little moment of joy, every time.</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;margin-top:48px;">
+    <div data-reveal style="border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 14px 40px rgba(26,26,26,.08);border:1px solid rgba(26,26,26,.05);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease;" style-hover="transform:translateY(-8px);box-shadow:0 26px 54px rgba(26,26,26,.14);">
+      <div style="position:relative;width:100%;aspect-ratio:4/5;"><image-slot id="ll-kiosk" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183732_1f8543ce-4329-43e6-8d43-c2120ca022a1.png" shape="rect" fit="cover" placeholder="KIOSK · 4:5 · three-quarter milk-carton kiosk w/ cow face, self-serve screen, toppings jars, staff in pink shirt + cow-print apron"></image-slot></div>
+      <div style="padding:22px 22px 26px;"><h3 style="font-family:'Baloo 2',cursive;font-weight:700;font-size:22px;margin:0;">The Carton Kiosk</h3><p style="margin:8px 0 0;color:rgba(26,26,26,.6);font-size:15px;line-height:1.6;">A whole cow you can walk up to. It's the friendliest counter in the mall.</p></div>
+    </div>
+    <div data-reveal data-reveal-delay="80" style="border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 14px 40px rgba(26,26,26,.08);border:1px solid rgba(26,26,26,.05);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease;" style-hover="transform:translateY(-8px);box-shadow:0 26px 54px rgba(26,26,26,.14);">
+      <div style="position:relative;width:100%;aspect-ratio:4/5;"><image-slot id="ll-happy" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183734_d6cd94db-7ad7-4ced-91fc-ec592b0f2882.png" shape="rect" fit="cover" placeholder="HAPPY MOMENT · 4:5 · kid/family laughing holding cones, warm candid, string-light bokeh"></image-slot></div>
+      <div style="padding:22px 22px 26px;"><h3 style="font-family:'Baloo 2',cursive;font-weight:700;font-size:22px;margin:0;">The Happy Moment</h3><p style="margin:8px 0 0;color:rgba(26,26,26,.6);font-size:15px;line-height:1.6;">Cones out, phones up, everyone smiling. It's a treat and a photo op.</p></div>
+    </div>
+    <div data-reveal data-reveal-delay="160" style="border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 14px 40px rgba(26,26,26,.08);border:1px solid rgba(26,26,26,.05);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease;" style-hover="transform:translateY(-8px);box-shadow:0 26px 54px rgba(26,26,26,.14);">
+      <div style="position:relative;width:100%;aspect-ratio:4/5;"><image-slot id="ll-toppings" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183734_5836abcd-5816-4eac-b841-11b2a33b570f.png" shape="rect" fit="cover" placeholder="TOPPINGS · 4:5 · close-up toppings bar (sprinkles, syrups) on cow-print counter, styled + colorful"></image-slot></div>
+      <div style="padding:22px 22px 26px;"><h3 style="font-family:'Baloo 2',cursive;font-weight:700;font-size:22px;margin:0;">The Toppings Bar</h3><p style="margin:8px 0 0;color:rgba(26,26,26,.6);font-size:15px;line-height:1.6;">Keep it classic or dress it up. A few good sprinkles, zero decisions to agonize over.</p></div>
+    </div>
+    <div data-reveal data-reveal-delay="240" style="border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 14px 40px rgba(26,26,26,.08);border:1px solid rgba(26,26,26,.05);transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease;" style-hover="transform:translateY(-8px);box-shadow:0 26px 54px rgba(26,26,26,.14);">
+      <div style="position:relative;width:100%;aspect-ratio:4/5;"><image-slot id="ll-mascot" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183735_a5453df7-cb0e-44b4-9bde-b1248d47fff8.png" shape="rect" fit="cover" placeholder="COW MASCOT · 4:5 · cute cartoon cow face with pink nose as signage, clean + charming"></image-slot></div>
+      <div style="padding:22px 22px 26px;"><h3 style="font-family:'Baloo 2',cursive;font-weight:700;font-size:22px;margin:0;">The Mascot</h3><p style="margin:8px 0 0;color:rgba(26,26,26,.6);font-size:15px;line-height:1.6;">One pink nose, endless goodwill. Our cow is the best hire we ever made.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY IT WORKS (dark cow-print) ===================== -->
+<section id="why" style="position:relative;background:#1A1A1A;color:#fff;overflow:hidden;padding:clamp(84px,12vw,150px) 0;">
+  <div style="position:absolute;width:340px;height:280px;background:rgba(255,255,255,.05);border-radius:48% 52% 55% 45%/55% 48% 52% 45%;top:-60px;left:-80px;pointer-events:none;"></div>
+  <div style="position:absolute;width:260px;height:230px;background:rgba(240,108,160,.14);border-radius:52% 48% 40% 60%/50% 60% 40% 50%;bottom:-50px;right:-40px;pointer-events:none;"></div>
+  <div style="position:absolute;width:150px;height:130px;background:rgba(255,255,255,.04);border-radius:50%;top:40%;right:12%;pointer-events:none;"></div>
+  <div style="position:relative;max-width:1240px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(40px,6vw,80px);align-items:center;">
+    <div data-reveal>
+      <div style="display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#F9C3D8;"><span style="width:8px;height:8px;border-radius:50%;background:#F06CA0;display:inline-block;"></span>Why It Works</div>
+      <h2 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(36px,5.2vw,68px);line-height:1;letter-spacing:-.02em;margin:16px 0 0;">Simple to run.<br>Impossible to resist.</h2>
+      <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.7;color:rgba(255,255,255,.72);margin:22px 0 0;max-width:480px;">One product means one machine, one process, one thing to be great at. That's why Leche Leche is genuinely easy to franchise — and why the queue never really stops.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
+        <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 22px;flex:1 1 140px;"><div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:19px;color:#F9C3D8;">Low complexity</div><div style="color:rgba(255,255,255,.6);font-size:14px;margin-top:6px;line-height:1.5;">One recipe, tiny footprint, minimal training.</div></div>
+        <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 22px;flex:1 1 140px;"><div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:19px;color:#F9C3D8;">High crave</div><div style="color:rgba(255,255,255,.6);font-size:14px;margin-top:6px;line-height:1.5;">Instantly recognizable, endlessly shareable.</div></div>
+        <div style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px 22px;flex:1 1 140px;"><div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:19px;color:#F9C3D8;">Fast service</div><div style="color:rgba(255,255,255,.6);font-size:14px;margin-top:6px;line-height:1.5;">Cone in hand in under a minute.</div></div>
+      </div>
+    </div>
+    <div data-reveal data-reveal-delay="120" style="background:#fff;color:#1A1A1A;border-radius:24px;padding:clamp(28px,4vw,44px);box-shadow:0 30px 70px rgba(0,0,0,.4);">
+      <h3 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:26px;margin:0 0 6px;">Every store includes</h3>
+      <p style="margin:0 0 22px;color:rgba(26,26,26,.55);font-size:15px;">Turnkey — you bring the location, we bring the cow.</p>
+      <div style="display:flex;flex-direction:column;gap:2px;">
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(26,26,26,.08);"><span style="width:26px;height:26px;flex:0 0 auto;border-radius:50%;background:#F06CA0;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;">✓</span><span style="font-weight:700;">The signature milk-carton kiosk</span></div>
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(26,26,26,.08);"><span style="width:26px;height:26px;flex:0 0 auto;border-radius:50%;background:#F06CA0;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;">✓</span><span style="font-weight:700;">Soft-serve machine &amp; equipment</span></div>
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(26,26,26,.08);"><span style="width:26px;height:26px;flex:0 0 auto;border-radius:50%;background:#F06CA0;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;">✓</span><span style="font-weight:700;">Full branding &amp; cow-print kit</span></div>
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid rgba(26,26,26,.08);"><span style="width:26px;height:26px;flex:0 0 auto;border-radius:50%;background:#F06CA0;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;">✓</span><span style="font-weight:700;">Staff training &amp; operations playbook</span></div>
+        <div style="display:flex;align-items:center;gap:14px;padding:14px 0;"><span style="width:26px;height:26px;flex:0 0 auto;border-radius:50%;background:#F06CA0;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;">✓</span><span style="font-weight:700;">Marketing launch package</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALLERY ===================== -->
+<section style="max-width:1300px;margin:0 auto;padding:clamp(80px,11vw,140px) 24px;">
+  <div data-reveal style="text-align:center;max-width:640px;margin:0 auto 48px;">
+    <div style="display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#F06CA0;"><span style="width:8px;height:8px;border-radius:50%;background:#F06CA0;display:inline-block;"></span>Gallery</div>
+    <h2 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(34px,4.8vw,60px);line-height:1;letter-spacing:-.02em;margin:14px 0 0;">Life around the cow.</h2>
+  </div>
+  <div data-reveal class="ll-gallery">
+    <div style="break-inside:avoid;margin-bottom:18px;border-radius:18px;overflow:hidden;box-shadow:0 12px 34px rgba(26,26,26,.1);"><div style="position:relative;width:100%;aspect-ratio:5/6;"><image-slot id="ll-night" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183742_42c33850-aa1d-4212-9a69-be67730bc1c8.png" shape="rect" fit="cover" placeholder="NIGHT VIBE · 5:6 · kiosk glowing at night, string lights, festive crowd"></image-slot></div></div>
+    <div style="break-inside:avoid;margin-bottom:18px;border-radius:18px;overflow:hidden;box-shadow:0 12px 34px rgba(26,26,26,.1);"><div style="position:relative;width:100%;aspect-ratio:16/9;"><image-slot id="ll-wideday" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183744_f1987c37-34f5-4ebf-8430-767e2e8b0d63.png" shape="rect" fit="cover" placeholder="WIDE DAY · 16:9 · daytime establishing wide of kiosk, cheerful line of customers"></image-slot></div></div>
+    <div style="break-inside:avoid;margin-bottom:18px;border-radius:18px;overflow:hidden;box-shadow:0 12px 34px rgba(26,26,26,.1);"><div style="position:relative;width:100%;aspect-ratio:5/6;"><image-slot id="ll-freshpull" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183742_48d75d6a-0a58-49c7-9dd3-40f36d74ffd0.png" shape="rect" fit="cover" placeholder="FRESH PULL · 5:6 · milky swirl pulled fresh from the machine, creamy, mid-motion"></image-slot></div></div>
+    <div style="break-inside:avoid;margin-bottom:18px;border-radius:18px;overflow:hidden;box-shadow:0 12px 34px rgba(26,26,26,.1);"><div style="position:relative;width:100%;aspect-ratio:5/6;"><image-slot id="ll-franchiseready" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183745_08b6b7db-2622-431f-8666-24c9de41511c.png" shape="rect" fit="cover" placeholder="FRANCHISE-READY · 5:6 · kiosk in busy mall/market with small happy queue"></image-slot></div></div>
+    <div style="break-inside:avoid;margin-bottom:18px;border-radius:18px;overflow:hidden;box-shadow:0 12px 34px rgba(26,26,26,.1);"><div style="position:relative;width:100%;aspect-ratio:4/5;"><image-slot id="ll-gal-a" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183734_d6cd94db-7ad7-4ced-91fc-ec592b0f2882.png" shape="rect" fit="cover" placeholder="GALLERY · 4:5 · lively candid — cones + string lights"></image-slot></div></div>
+    <div style="break-inside:avoid;margin-bottom:18px;border-radius:18px;overflow:hidden;box-shadow:0 12px 34px rgba(26,26,26,.1);"><div style="position:relative;width:100%;aspect-ratio:1/1;"><image-slot id="ll-gal-b" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183734_5836abcd-5816-4eac-b841-11b2a33b570f.png" shape="rect" fit="cover" placeholder="GALLERY · 1:1 · detail shot"></image-slot></div></div>
+  </div>
+</section>
+
+<!-- ===================== REVIEWS ===================== -->
+<section style="background:#FFF6EE;padding:clamp(80px,11vw,140px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 24px;">
+    <div data-reveal style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#F06CA0;"><span style="width:8px;height:8px;border-radius:50%;background:#F06CA0;display:inline-block;"></span>Reviews</div>
+        <h2 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(34px,4.8vw,60px);line-height:1;letter-spacing:-.02em;margin:14px 0 0;">People are a little obsessed.</h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:#fff;padding:16px 22px;border-radius:18px;box-shadow:0 10px 28px rgba(26,26,26,.08);"><span style="font-family:'Baloo 2',cursive;font-weight:800;font-size:40px;color:#F06CA0;line-height:1;">4.9</span><div><div style="color:#F06CA0;letter-spacing:2px;">★★★★★</div><div style="font-size:13px;color:rgba(26,26,26,.55);font-weight:700;">12,400+ reviews</div></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:44px;">
+      <div data-reveal style="background:#fff;border-radius:20px;padding:30px;box-shadow:0 12px 34px rgba(26,26,26,.07);border:1px solid rgba(26,26,26,.05);"><div style="color:#F06CA0;letter-spacing:2px;font-size:18px;">★★★★★</div><p style="font-size:17px;line-height:1.6;font-weight:600;margin:14px 0 22px;">"Genuinely the creamiest soft serve I've had. We drove across town just for this cone."</p><div style="display:flex;align-items:center;gap:12px;"><span style="width:40px;height:40px;border-radius:50%;background:#F9C3D8;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-weight:800;color:#F06CA0;">M</span><div><div style="font-weight:800;">Mara S.</div><div style="font-size:13px;color:rgba(26,26,26,.5);">Quezon City</div></div></div></div>
+      <div data-reveal data-reveal-delay="80" style="background:#fff;border-radius:20px;padding:30px;box-shadow:0 12px 34px rgba(26,26,26,.07);border:1px solid rgba(26,26,26,.05);"><div style="color:#F06CA0;letter-spacing:2px;font-size:18px;">★★★★★</div><p style="font-size:17px;line-height:1.6;font-weight:600;margin:14px 0 22px;">"The kiosk is the cutest thing in the mall. My kids ask for the cow every single weekend."</p><div style="display:flex;align-items:center;gap:12px;"><span style="width:40px;height:40px;border-radius:50%;background:#F9C3D8;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-weight:800;color:#F06CA0;">J</span><div><div style="font-weight:800;">Jonathan R.</div><div style="font-size:13px;color:rgba(26,26,26,.5);">Cebu</div></div></div></div>
+      <div data-reveal data-reveal-delay="160" style="background:#fff;border-radius:20px;padding:30px;box-shadow:0 12px 34px rgba(26,26,26,.07);border:1px solid rgba(26,26,26,.05);"><div style="color:#F06CA0;letter-spacing:2px;font-size:18px;">★★★★★</div><p style="font-size:17px;line-height:1.6;font-weight:600;margin:14px 0 22px;">"One flavor, zero regrets. Fast, friendly, and honestly better than places with fifty options."</p><div style="display:flex;align-items:center;gap:12px;"><span style="width:40px;height:40px;border-radius:50%;background:#F9C3D8;display:flex;align-items:center;justify-content:center;font-family:'Baloo 2',cursive;font-weight:800;color:#F06CA0;">A</span><div><div style="font-weight:800;">Aika D.</div><div style="font-size:13px;color:rgba(26,26,26,.5);">Davao</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FRANCHISE ===================== -->
+<section id="franchise" style="padding:clamp(84px,12vw,150px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 24px;">
+    <div data-reveal style="text-align:center;max-width:680px;margin:0 auto;">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#F06CA0;"><span style="width:8px;height:8px;border-radius:50%;background:#F06CA0;display:inline-block;"></span>Franchise</div>
+      <h2 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(38px,5.4vw,72px);line-height:.98;letter-spacing:-.02em;margin:16px 0 0;">Own a cow.<br>Sell a smile.</h2>
+      <p style="font-size:clamp(16px,1.5vw,19px);line-height:1.7;color:rgba(26,26,26,.62);margin:20px auto 0;max-width:520px;">Three ways to start, all turnkey. Pick a package and our team walks you from signing to your first swirl.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:52px;align-items:stretch;">
+      <div data-reveal style="background:#fff;border:1px solid rgba(26,26,26,.1);border-radius:24px;padding:34px;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease;box-shadow:0 10px 30px rgba(26,26,26,.06);" style-hover="transform:translateY(-8px);box-shadow:0 26px 54px rgba(26,26,26,.12);">
+        <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:22px;">Cart</div>
+        <div style="color:rgba(26,26,26,.55);font-size:14px;margin-top:4px;">Kiosk-in-a-box, high foot traffic.</div>
+        <div style="margin:22px 0 6px;font-size:14px;color:rgba(26,26,26,.5);font-weight:700;">Starting at</div>
+        <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:40px;color:#1A1A1A;line-height:1;">₱850,000</div>
+        <div style="height:1px;background:rgba(26,26,26,.08);margin:24px 0;"></div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:15px;color:rgba(26,26,26,.75);">
+          <span>✓ Compact cow-carton cart</span><span>✓ Soft-serve machine</span><span>✓ Branding &amp; starter kit</span><span>✓ 3-day staff training</span>
+        </div>
+        <a href="#inquire" style="margin-top:auto;padding-top:26px;"><span style="display:block;text-align:center;background:#FFF6EE;color:#1A1A1A;font-family:'Baloo 2',cursive;font-weight:700;padding:14px;border-radius:999px;">Choose Cart</span></a>
+      </div>
+      <div data-reveal data-reveal-delay="90" style="background:#1A1A1A;color:#fff;border-radius:24px;padding:34px;display:flex;flex-direction:column;position:relative;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease;box-shadow:0 20px 50px rgba(26,26,26,.28);" style-hover="transform:translateY(-10px);box-shadow:0 34px 64px rgba(26,26,26,.4);">
+        <div style="position:absolute;top:-13px;left:34px;background:#F06CA0;color:#fff;font-weight:800;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:999px;box-shadow:0 8px 18px rgba(240,108,160,.4);">Most popular</div>
+        <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:22px;color:#F9C3D8;">Kiosk</div>
+        <div style="color:rgba(255,255,255,.6);font-size:14px;margin-top:4px;">The full milk-carton experience.</div>
+        <div style="margin:22px 0 6px;font-size:14px;color:rgba(255,255,255,.55);font-weight:700;">Starting at</div>
+        <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:40px;color:#fff;line-height:1;">₱1,450,000</div>
+        <div style="height:1px;background:rgba(255,255,255,.14);margin:24px 0;"></div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:15px;color:rgba(255,255,255,.85);">
+          <span>✓ Full milk-carton kiosk</span><span>✓ Everything in Cart</span><span>✓ Toppings bar &amp; signage</span><span>✓ Marketing launch package</span><span>✓ Ongoing ops support</span>
+        </div>
+        <a href="#inquire" style="margin-top:auto;padding-top:26px;"><span style="display:block;text-align:center;background:#F06CA0;color:#fff;font-family:'Baloo 2',cursive;font-weight:700;padding:14px;border-radius:999px;box-shadow:0 12px 26px rgba(240,108,160,.4);">Choose Kiosk</span></a>
+      </div>
+      <div data-reveal data-reveal-delay="180" style="background:#fff;border:1px solid rgba(26,26,26,.1);border-radius:24px;padding:34px;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease;box-shadow:0 10px 30px rgba(26,26,26,.06);" style-hover="transform:translateY(-8px);box-shadow:0 26px 54px rgba(26,26,26,.12);">
+        <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:22px;">Flagship</div>
+        <div style="color:rgba(26,26,26,.55);font-size:14px;margin-top:4px;">A destination store with seating.</div>
+        <div style="margin:22px 0 6px;font-size:14px;color:rgba(26,26,26,.5);font-weight:700;">Starting at</div>
+        <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:40px;color:#1A1A1A;line-height:1;">₱2,800,000</div>
+        <div style="height:1px;background:rgba(26,26,26,.08);margin:24px 0;"></div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:15px;color:rgba(26,26,26,.75);">
+          <span>✓ Full-size flagship fit-out</span><span>✓ Everything in Kiosk</span><span>✓ Seating &amp; interior branding</span><span>✓ Priority territory rights</span><span>✓ Dedicated launch team</span>
+        </div>
+        <a href="#inquire" style="margin-top:auto;padding-top:26px;"><span style="display:block;text-align:center;background:#FFF6EE;color:#1A1A1A;font-family:'Baloo 2',cursive;font-weight:700;padding:14px;border-radius:999px;">Choose Flagship</span></a>
+      </div>
+    </div>
+
+    <!-- Inquiry form -->
+    <div id="inquire" style="scroll-margin-top:90px;margin-top:clamp(48px,7vw,90px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);align-items:start;background:#FFF6EE;border-radius:28px;padding:clamp(30px,5vw,60px);">
+      <div data-reveal>
+        <h3 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(28px,3.6vw,44px);line-height:1.02;letter-spacing:-.01em;margin:0;">Let's get a cow<br>in your city.</h3>
+        <p style="font-size:17px;line-height:1.7;color:rgba(26,26,26,.62);margin:18px 0 0;max-width:380px;">Tell us where you are and how to reach you. Our franchise team replies within two business days — no obligation.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:28px;">
+          <div style="display:flex;align-items:center;gap:12px;font-weight:700;"><span style="width:34px;height:34px;flex:0 0 auto;border-radius:50%;background:#F06CA0;color:#fff;display:flex;align-items:center;justify-content:center;">✓</span>Fast, low-complexity setup</div>
+          <div style="display:flex;align-items:center;gap:12px;font-weight:700;"><span style="width:34px;height:34px;flex:0 0 auto;border-radius:50%;background:#F06CA0;color:#fff;display:flex;align-items:center;justify-content:center;">✓</span>Proven, crave-worthy product</div>
+          <div style="display:flex;align-items:center;gap:12px;font-weight:700;"><span style="width:34px;height:34px;flex:0 0 auto;border-radius:50%;background:#F06CA0;color:#fff;display:flex;align-items:center;justify-content:center;">✓</span>End-to-end launch support</div>
+        </div>
+      </div>
+
+      <div data-reveal data-reveal-delay="120">
+        <sc-if value="{{ submitted }}">
+          <div style="background:#fff;border-radius:22px;padding:44px 34px;text-align:center;box-shadow:0 16px 40px rgba(26,26,26,.1);">
+            <div style="width:70px;height:70px;margin:0 auto;border-radius:50%;background:#F06CA0;color:#fff;display:flex;align-items:center;justify-content:center;font-size:34px;box-shadow:0 12px 26px rgba(240,108,160,.4);">✓</div>
+            <h3 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:28px;margin:22px 0 8px;">Thank you, {{ submittedName }}!</h3>
+            <p style="color:rgba(26,26,26,.6);font-size:16px;line-height:1.6;margin:0;">Your franchise inquiry is in. Our team will reach out within two business days. Get ready to meet your cow.</p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSubmitted }}">
+          <form onSubmit="{{ onSubmit }}" style="background:#fff;border-radius:22px;padding:clamp(24px,3vw,36px);box-shadow:0 16px 40px rgba(26,26,26,.1);display:flex;flex-direction:column;gap:18px;">
+            <div>
+              <label style="display:block;font-weight:800;font-size:14px;margin-bottom:7px;">Full name <span style="color:#F06CA0;">*</span></label>
+              <input type="text" value="{{ form.name }}" onInput="{{ onName }}" placeholder="Juan Dela Cruz" style="width:100%;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(26,26,26,.14);font-size:16px;outline:none;transition:border-color .2s ease;" style-focus="border-color:#F06CA0;"/>
+              <sc-if value="{{ errName }}"><div style="color:#d8548a;font-size:13px;font-weight:700;margin-top:6px;">{{ errName }}</div></sc-if>
+            </div>
+            <div>
+              <label style="display:block;font-weight:800;font-size:14px;margin-bottom:7px;">Location <span style="color:#F06CA0;">*</span></label>
+              <input type="text" value="{{ form.location }}" onInput="{{ onLocation }}" placeholder="City / Province" style="width:100%;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(26,26,26,.14);font-size:16px;outline:none;transition:border-color .2s ease;" style-focus="border-color:#F06CA0;"/>
+              <sc-if value="{{ errLocation }}"><div style="color:#d8548a;font-size:13px;font-weight:700;margin-top:6px;">{{ errLocation }}</div></sc-if>
+            </div>
+            <div>
+              <label style="display:block;font-weight:800;font-size:14px;margin-bottom:7px;">Contact number <span style="color:#F06CA0;">*</span></label>
+              <input type="tel" value="{{ form.contact }}" onInput="{{ onContact }}" placeholder="+63 9XX XXX XXXX" style="width:100%;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(26,26,26,.14);font-size:16px;outline:none;transition:border-color .2s ease;" style-focus="border-color:#F06CA0;"/>
+              <sc-if value="{{ errContact }}"><div style="color:#d8548a;font-size:13px;font-weight:700;margin-top:6px;">{{ errContact }}</div></sc-if>
+            </div>
+            <div>
+              <label style="display:block;font-weight:800;font-size:14px;margin-bottom:7px;">Message</label>
+              <textarea rows="4" value="{{ form.message }}" onInput="{{ onMessage }}" placeholder="Which package are you interested in? Any questions?" style="width:100%;padding:14px 16px;border-radius:12px;border:1.5px solid rgba(26,26,26,.14);font-size:16px;outline:none;resize:vertical;transition:border-color .2s ease;font-family:Nunito,sans-serif;" style-focus="border-color:#F06CA0;"></textarea>
+            </div>
+            <button type="submit" style="background:#F06CA0;color:#fff;font-family:'Baloo 2',cursive;font-weight:700;font-size:18px;padding:16px;border:none;border-radius:999px;cursor:pointer;box-shadow:0 12px 28px rgba(240,108,160,.42);transition:transform .2s cubic-bezier(.34,1.56,.64,1),box-shadow .2s ease;" style-hover="transform:translateY(-2px);box-shadow:0 16px 34px rgba(240,108,160,.5);">Send Franchise Inquiry</button>
+            <p style="text-align:center;font-size:13px;color:rgba(26,26,26,.45);margin:0;">We'll never share your details. Reply within 2 business days.</p>
+          </form>
+        </sc-if>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FIND US ===================== -->
+<section id="find" style="background:#FFF6EE;padding:clamp(80px,11vw,140px) 0;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 24px;">
+    <div data-reveal style="max-width:640px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#F06CA0;"><span style="width:8px;height:8px;border-radius:50%;background:#F06CA0;display:inline-block;"></span>Find Us</div>
+      <h2 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(34px,4.8vw,60px);line-height:1;letter-spacing:-.02em;margin:14px 0 0;">A cow near you.</h2>
+      <p style="font-size:17px;line-height:1.7;color:rgba(26,26,26,.6);margin:16px 0 0;">24 kiosks across the Philippines — and counting. Here's where to get your swirl today.</p>
+    </div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:44px;">
+      <div style="background:#fff;border-radius:18px;padding:26px;box-shadow:0 10px 28px rgba(26,26,26,.06);"><div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:20px;">Metro Manila</div><div style="color:rgba(26,26,26,.6);font-size:15px;line-height:1.7;margin-top:10px;">SM Megamall · Glorietta · Trinoma · UP Town Center · BGC Market Market</div></div>
+      <div style="background:#fff;border-radius:18px;padding:26px;box-shadow:0 10px 28px rgba(26,26,26,.06);"><div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:20px;">Cebu</div><div style="color:rgba(26,26,26,.6);font-size:15px;line-height:1.7;margin-top:10px;">Ayala Center Cebu · SM Seaside · IT Park Night Market</div></div>
+      <div style="background:#fff;border-radius:18px;padding:26px;box-shadow:0 10px 28px rgba(26,26,26,.06);"><div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:20px;">Davao</div><div style="color:rgba(26,26,26,.6);font-size:15px;line-height:1.7;margin-top:10px;">Abreeza Mall · SM Lanang Premier · Roxas Night Market</div></div>
+      <div style="background:#fff;border-radius:18px;padding:26px;box-shadow:0 10px 28px rgba(26,26,26,.06);"><div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:20px;">Iloilo &amp; more</div><div style="color:rgba(26,26,26,.6);font-size:15px;line-height:1.7;margin-top:10px;">SM City Iloilo · Robinsons Place · plus new kiosks opening soon</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CLOSING FILM ===================== -->
+<section style="position:relative;min-height:clamp(440px,64vh,700px);overflow:hidden;display:flex;align-items:center;justify-content:center;background:#1A1A1A;">
+  <div style="position:absolute;inset:0;">
+    <video id="closeVidA" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183829_b15ef06d-cde9-4028-a1fc-d5d1574488ee.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183654_d683fedb-3d53-48f3-888e-8c1a1ef3084e.png" muted playsinline autoplay preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity 1.2s ease;"></video>
+    <video id="closeVidB" src="https://d8j0ntlcm91z4.cloudfront.net/user_3Eu1WxsiYMZJ7ObO7mZpfSPsV89/hf_20260731_183829_b15ef06d-cde9-4028-a1fc-d5d1574488ee.mp4" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;"></video>
+  </div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,26,26,.45),rgba(26,26,26,.6));pointer-events:none;"></div>
+  <div data-reveal style="position:relative;z-index:2;text-align:center;padding:24px;pointer-events:auto;">
+    <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(48px,11vw,150px);line-height:.9;color:#fff;letter-spacing:-.02em;text-shadow:0 8px 40px rgba(0,0,0,.4);">Leche Leche</div>
+    <p style="color:rgba(255,255,255,.9);font-size:clamp(17px,2vw,22px);font-weight:600;margin:16px 0 30px;text-shadow:0 2px 14px rgba(0,0,0,.4);">Soft serve, made playful.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="#find" style="background:#F06CA0;color:#fff;font-family:'Baloo 2',cursive;font-weight:700;font-size:18px;padding:16px 32px;border-radius:999px;box-shadow:0 12px 30px rgba(240,108,160,.45);transition:transform .2s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:translateY(-3px) scale(1.03);">Find a Store</a>
+      <a href="#franchise" style="background:rgba(255,255,255,.95);color:#1A1A1A;font-family:'Baloo 2',cursive;font-weight:700;font-size:18px;padding:16px 32px;border-radius:999px;transition:transform .2s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:translateY(-3px) scale(1.03);">Franchise With Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:#1A1A1A;color:#fff;padding:clamp(56px,8vw,90px) 0 40px;overflow:hidden;">
+  <div style="max-width:1240px;margin:0 auto;padding:0 24px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px;padding-bottom:50px;border-bottom:1px solid rgba(255,255,255,.1);">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:34px;height:34px;border-radius:50%;background:#fff;position:relative;display:inline-block;overflow:hidden;flex:0 0 auto;">
+            <span style="position:absolute;width:14px;height:12px;background:#1A1A1A;border-radius:50%;top:6px;left:5px;"></span>
+            <span style="position:absolute;width:9px;height:8px;background:#1A1A1A;border-radius:50%;bottom:5px;right:6px;"></span>
+            <span style="position:absolute;width:8px;height:8px;background:#F06CA0;border-radius:50%;bottom:9px;left:13px;"></span>
+          </span>
+          <span style="font-family:'Baloo 2',cursive;font-weight:800;font-size:22px;color:#F9C3D8;">Leche Leche</span>
+        </div>
+        <p style="color:rgba(255,255,255,.55);font-size:14px;line-height:1.6;margin:16px 0 0;max-width:220px;">One really good swirl, served from a cow that makes people smile.</p>
+      </div>
+      <div><div style="font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;">Explore</div><div style="display:flex;flex-direction:column;gap:10px;"><a href="#swirl" style="color:rgba(255,255,255,.8);font-weight:600;">The Swirl</a><a href="#experience" style="color:rgba(255,255,255,.8);font-weight:600;">Experience</a><a href="#why" style="color:rgba(255,255,255,.8);font-weight:600;">Why It Works</a></div></div>
+      <div><div style="font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;">Business</div><div style="display:flex;flex-direction:column;gap:10px;"><a href="#franchise" style="color:rgba(255,255,255,.8);font-weight:600;">Franchise</a><a href="#inquire" style="color:rgba(255,255,255,.8);font-weight:600;">Inquire</a><a href="#find" style="color:rgba(255,255,255,.8);font-weight:600;">Find Us</a></div></div>
+      <div><div style="font-weight:800;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px;">Say hi</div><div style="display:flex;flex-direction:column;gap:10px;color:rgba(255,255,255,.8);font-weight:600;font-size:15px;"><span>hello@lecheleche.ph</span><span>+63 2 8888 0000</span><span>@lechelechph</span></div></div>
+    </div>
+    <div style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(70px,22vw,340px);line-height:.8;color:rgba(255,255,255,.08);white-space:nowrap;text-align:center;margin-top:44px;letter-spacing:-.02em;">Leche Leche</div>
+    <div style="text-align:center;color:rgba(255,255,255,.4);font-size:13px;margin-top:20px;">© 2026 Leche Leche Philippines. Soft serve, made playful.</div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    form: { name: '', location: '', contact: '', message: '' },
+    errors: {},
+    submitted: false,
+    submittedName: ''
+  };
+
+  setField(key, val) {
+    this.setState(s => ({ form: { ...s.form, [key]: val }, errors: { ...s.errors, [key]: '' } }));
+  }
+
+  validate() {
+    const f = this.state.form;
+    const errors = {};
+    if (!f.name.trim()) errors.name = 'Please enter your name.';
+    if (!f.location.trim()) errors.location = 'Where would your store be?';
+    const digits = (f.contact.match(/\d/g) || []).length;
+    if (!f.contact.trim()) errors.contact = 'A contact number helps us reach you.';
+    else if (digits < 7) errors.contact = 'That doesn\u2019t look like a full number.';
+    return errors;
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    const errors = this.validate();
+    if (Object.keys(errors).length) { this.setState({ errors }); return; }
+    this.setState(s => ({ submitted: true, submittedName: s.form.name.trim().split(' ')[0] }));
+  };
+
+  componentDidMount() {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const toggle = document.getElementById('llNavToggle');
+    const menu = document.getElementById('llNavMenu');
+    const links = document.getElementById('llNavLinks');
+    const closeNav = () => {
+      if (toggle) { toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Open menu'); }
+      menu?.classList.remove('is-open');
+      links?.classList.remove('is-open');
+    };
+    toggle?.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menu?.classList.toggle('is-open', open);
+      links?.classList.toggle('is-open', open);
+    });
+    links?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          const el = en.target;
+          const d = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+          el.style.transitionDelay = d + 'ms';
+          el.style.opacity = '1';
+          el.style.transform = 'none';
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => {
+      if (!reducedMotion) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1)';
+      }
+      io.observe(el);
+    });
+
+    document.querySelectorAll('image-slot').forEach((slot, i) => {
+      const applyLazy = () => {
+        const img = slot.shadowRoot?.querySelector('img');
+        if (img && i > 0) { img.loading = 'lazy'; img.decoding = 'async'; }
+      };
+      applyLazy();
+      setTimeout(applyLazy, 500);
+    });
+
+    const setupLoop = (aId, bId) => {
+      const a = document.getElementById(aId), b = document.getElementById(bId);
+      if (!a || !b) return;
+      const FADE = 1.2;
+      let active = a, idle = b;
+      [a, b].forEach(v => { v.muted = true; v.playsInline = true; v.play().catch(() => {}); });
+      b.pause(); b.currentTime = 0;
+      const tick = () => {
+        if (!active.duration || isNaN(active.duration)) return;
+        if (active.currentTime >= active.duration - FADE) {
+          idle.currentTime = 0;
+          idle.play().catch(() => {});
+          idle.style.opacity = '1';
+          active.style.opacity = '0';
+          const prev = active;
+          active = idle; idle = prev;
+          setTimeout(() => { prev.pause(); }, FADE * 1000);
+        }
+      };
+      a.addEventListener('timeupdate', tick);
+      b.addEventListener('timeupdate', tick);
+    };
+    setupLoop('heroVidA', 'heroVidB');
+    setupLoop('closeVidA', 'closeVidB');
+
+    const nav = document.getElementById('lnav');
+    const hero = document.getElementById('heroParallax');
+    const onScroll = () => {
+      const y = window.scrollY || window.pageYOffset;
+      if (nav) {
+        const solid = y > 40;
+        nav.style.background = solid ? 'rgba(255,255,255,.9)' : 'transparent';
+        nav.style.backdropFilter = solid ? 'saturate(180%) blur(14px)' : 'none';
+        nav.style.webkitBackdropFilter = solid ? 'saturate(180%) blur(14px)' : 'none';
+        nav.style.boxShadow = solid ? '0 6px 26px rgba(26,26,26,.08)' : 'none';
+        nav.style.borderBottomColor = solid ? 'rgba(26,26,26,.06)' : 'transparent';
+      }
+      if (hero && !reducedMotion && y < 1100) hero.style.transform = 'translateY(' + (y * 0.16) + 'px) scale(1.06)';
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    this._onScroll = onScroll;
+    this._closeNav = closeNav;
+  }
+
+  componentWillUnmount() {
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+  }
+
+  renderVals() {
+    const f = this.state.form;
+    const er = this.state.errors;
+    return {
+      form: f,
+      errName: er.name || '',
+      errLocation: er.location || '',
+      errContact: er.contact || '',
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      submittedName: this.state.submittedName,
+      onName: (e) => this.setField('name', e.target.value),
+      onLocation: (e) => this.setField('location', e.target.value),
+      onContact: (e) => this.setField('contact', e.target.value),
+      onMessage: (e) => this.setField('message', e.target.value),
+      onSubmit: this.onSubmit
+    };
+  }
+}
+</script>
+</body>
+</html>
